@@ -1,0 +1,36 @@
+[package]
+name = "zerodupe_cli"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[[bin]]
+name = "zerodupe"
+path = "src/main.rs"
+
+[dependencies]
+camino.workspace = true
+clap.workspace = true
+serde_json.workspace = true
+toml.workspace = true
+zerodupe_config.workspace = true
+zerodupe_core.workspace = true
+zerodupe_fs.workspace = true
+zerodupe_report.workspace = true
+zerodupe_scan.workspace = true
+zerodupe_cache.workspace = true
+zerodupe_safety.workspace = true
+zerodupe_policy.workspace = true
+zerodupe_similar.workspace = true
+zerodupe_hygiene.workspace = true
+zerodupe_similar_image.workspace = true
+zerodupe_workflow.workspace = true
+zerodupe_platform.workspace = true
+ctrlc = "3.4"
+uuid.workspace = true
+
+[dev-dependencies]
+image.workspace = true
+tempfile.workspace = true

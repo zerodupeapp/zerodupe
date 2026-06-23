@@ -1,0 +1,21 @@
+[package]
+name = "zerodupe_hygiene"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+camino.workspace = true
+kamadak-exif.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+zerodupe_core.workspace = true
+zerodupe_fs.workspace = true
+zerodupe_platform.workspace = true
+
+[dev-dependencies]
+image.workspace = true
+tempfile.workspace = true
+zerodupe_platform = { workspace = true, features = ["testing"] }

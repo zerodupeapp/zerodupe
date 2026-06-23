@@ -1,0 +1,58 @@
+# System paths that should NEVER be scanned by ZeroDupe.
+# These are injected into DiscoveryOptions.exclude_patterns at scan start.
+# The user can override or add paths via ~/.config/zerodupe/protected_paths.user.toml
+
+[linux]
+paths = [
+    "/bin",
+    "/sbin",
+    "/usr/bin",
+    "/usr/sbin",
+    "/usr/lib",
+    "/usr/lib64",
+    "/lib",
+    "/lib64",
+    "/boot",
+    "/etc",
+    "/proc",
+    "/sys",
+    "/dev",
+    "/run",
+    "/var/lib",
+    "/var/cache",
+    "/snap",
+    "/flatpak",
+    "/lost+found",
+]
+
+[macos]
+paths = [
+    "/System",
+    "/Library",
+    "/usr/bin",
+    "/usr/sbin",
+    "/usr/lib",
+    "/private/var",
+    "/private/etc",
+    "/.Spotlight-V100",
+    "/.fseventsd",
+    "/.Trashes",
+]
+
+[windows]
+paths = [
+    "C:\\Windows",
+    "C:\\Program Files",
+    "C:\\Program Files (x86)",
+    "C:\\ProgramData",
+    "$Recycle.Bin",
+    "System Volume Information",
+]
+
+[user]
+# Add your own protected paths here. Example:
+# paths = [
+#     "/home/user/projects/active-client",
+#     "/mnt/backups",
+# ]
+paths = []

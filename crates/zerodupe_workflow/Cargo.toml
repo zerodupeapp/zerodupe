@@ -1,0 +1,29 @@
+[package]
+name = "zerodupe_workflow"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+camino.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+uuid.workspace = true
+zerodupe_cache.workspace = true
+zerodupe_config.workspace = true
+zerodupe_core.workspace = true
+zerodupe_fs.workspace = true
+zerodupe_hygiene.workspace = true
+zerodupe_platform.workspace = true
+zerodupe_safety.workspace = true
+zerodupe_scan.workspace = true
+zerodupe_report.workspace = true
+zerodupe_similar.workspace = true
+zerodupe_similar_image.workspace = true
+
+[dev-dependencies]
+image.workspace = true
+tempfile.workspace = true

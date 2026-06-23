@@ -1,0 +1,17 @@
+[package]
+name = "zerodupe_fs"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+camino.workspace = true
+ignore.workspace = true
+same-file.workspace = true
+zerodupe_core.workspace = true
+zerodupe_platform.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

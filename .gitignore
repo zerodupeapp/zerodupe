@@ -1,0 +1,59 @@
+# ZeroDupe — Git ignore rules
+
+# ── Build artifacts ──
+target/
+*.o
+*.so
+*.dylib
+*.dll
+*.lib
+*.a
+
+# ── SCIP code intelligence ──
+index.scip
+scip-snapshot/
+
+# ── IDE / editor ──
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+__MACOSX/
+
+# ── Environment ──
+.env
+.env.*
+!.env.example
+.dev/
+.venv/
+
+# ── Node (GUI frontend) ──
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# ── Release artifacts ──
+*.deb
+*.rpm
+*.AppImage
+*.dmg
+*.msi
+*.exe
+
+# ── Research / tmp ──
+research/repos/
+research/tmp/
+research/output/
+
+# ── Cargo tooling ──
+.nextest/
+.cargo-local/
+target/coverage/
+
+# ── Quarantine dirs generadas en tests ──
+zerodupe_quarantine/

@@ -1,0 +1,43 @@
+# Junk / temporary / cache location patterns — always active (all OSes).
+# These are compiled into the binary.
+
+[any]
+patterns = [
+    "whatsapp/",
+    "telegram/",
+    "/downloads/",
+    "/descargas/",
+    "nueva carpeta",
+    "new folder",
+    "untitled folder",
+    "backup",
+    "respaldo",
+    "viejo",
+    "old",
+    "recovered",
+    "recuperado",
+]
+
+[linux]
+patterns = [
+    "/tmp/",
+    "/var/tmp/",
+    "~/.cache/",
+    "lost+found",
+]
+
+[macos]
+patterns = [
+    "/private/tmp/",
+    "~/Library/Caches/",
+    ".Trash/",
+    ".fseventsd/",
+    ".Spotlight-V100/",
+]
+
+[windows]
+patterns = [
+    "%TEMP%",
+    "%LOCALAPPDATA%\\Temp\\",
+    "$RECYCLE.BIN",
+]

@@ -1,0 +1,64 @@
+[workspace]
+members = [
+  "crates/zerodupe_benchkit",
+  "crates/zerodupe_cache",
+  "crates/zerodupe_cli",
+  "crates/zerodupe_config",
+  "crates/zerodupe_core",
+  "crates/zerodupe_fs",
+  "crates/zerodupe_hash",
+  "crates/zerodupe_hygiene",
+  "crates/zerodupe_platform",
+  "crates/zerodupe_policy",
+  "crates/zerodupe_report",
+  "crates/zerodupe_safety",
+  "crates/zerodupe_scan",
+  "crates/zerodupe_similar",
+  "crates/zerodupe_similar_image",
+  "crates/zerodupe_workflow",
+]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+license = "MIT"
+repository = "https://github.com/zerodupe/zerodupe-engine"
+rust-version = "1.95"
+version = "0.1.0"
+
+[workspace.dependencies]
+blake3 = "1.8.5"
+camino = { version = "1.2.2", features = ["serde1"] }
+clap = { version = "4.6.1", features = ["derive"] }
+dirs = "6"
+ignore = "0.4.25"
+criterion = { version = "0.5", default-features = false }
+image = "0.25"
+image_hasher = { version = "3.1", features = ["fast_resize_unstable"] }
+kamadak-exif = "0.6"
+rawler = { version = "0.7.2", default-features = false }
+rayon = "1.10"
+rusqlite = { version = "0.39.0", features = ["bundled"] }
+same-file = "1.0.6"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+tempfile = "3.27.0"
+thiserror = "2.0.18"
+time = { version = "0.3", features = ["local-offset"] }
+toml = "0.8"
+uuid = { version = "1.23.1", features = ["v4", "serde"] }
+
+zerodupe_cache = { path = "crates/zerodupe_cache" }
+zerodupe_config = { path = "crates/zerodupe_config" }
+zerodupe_core = { path = "crates/zerodupe_core" }
+zerodupe_fs = { path = "crates/zerodupe_fs" }
+zerodupe_hash = { path = "crates/zerodupe_hash" }
+zerodupe_hygiene = { path = "crates/zerodupe_hygiene" }
+zerodupe_platform = { path = "crates/zerodupe_platform" }
+zerodupe_policy = { path = "crates/zerodupe_policy" }
+zerodupe_report = { path = "crates/zerodupe_report" }
+zerodupe_safety = { path = "crates/zerodupe_safety" }
+zerodupe_scan = { path = "crates/zerodupe_scan" }
+zerodupe_similar = { path = "crates/zerodupe_similar" }
+zerodupe_similar_image = { path = "crates/zerodupe_similar_image" }
+zerodupe_workflow = { path = "crates/zerodupe_workflow" }

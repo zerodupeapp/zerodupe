@@ -1,0 +1,19 @@
+[package]
+name = "zerodupe_similar"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+rayon.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+zerodupe_cache.workspace = true
+zerodupe_core.workspace = true
+zerodupe_platform.workspace = true
+
+[dev-dependencies]
+camino.workspace = true
+tempfile.workspace = true

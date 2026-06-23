@@ -1,0 +1,25 @@
+[package]
+name = "zerodupe_scan"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+camino.workspace = true
+rayon.workspace = true
+zerodupe_cache.workspace = true
+zerodupe_core.workspace = true
+zerodupe_fs.workspace = true
+zerodupe_hash.workspace = true
+zerodupe_platform.workspace = true
+zerodupe_policy.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+criterion.workspace = true
+
+[[bench]]
+name = "pipeline"
+harness = false

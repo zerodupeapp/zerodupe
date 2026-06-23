@@ -1,0 +1,37 @@
+# System file excludes — always active (all OSes).
+# Target may be a mixed-OS volume. All patterns are checked.
+
+[macos]
+patterns = [
+    ".DS_Store",
+    "._*",
+    "__MACOSX/",
+    "Icon\r",
+    ".localized",
+    ".AppleDouble/",
+]
+
+[windows]
+patterns = [
+    "Thumbs.db",
+    "desktop.ini",
+    "thumbcache_*.db",
+]
+
+[linux]
+patterns = [
+    "lost+found",
+]
+
+[vcs]
+patterns = [
+    ".git/",
+    ".hg/",
+    ".svn/",
+    ".bzr/",
+]
+
+[android]
+patterns = [
+    ".nomedia",
+]

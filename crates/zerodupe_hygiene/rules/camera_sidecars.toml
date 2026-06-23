@@ -1,0 +1,37 @@
+# Camera and photo sidecar file associations.
+# When the primary file is deleted by P1/P2 dedup, these become orphans.
+
+[[sidecars]]
+primary_extensions = ["HEIC", "heic"]
+sidecar_extension = "AAE"
+description = "Apple non-destructive edit data"
+
+[[sidecars]]
+primary_extensions = ["CR2", "NEF", "ARW", "DNG", "CR3", "ORF", "RAF", "RW2", "PEF", "SRW"]
+sidecar_extension = "XMP"
+description = "Adobe Camera Raw / Lightroom edit metadata (uppercase)"
+
+[[sidecars]]
+primary_extensions = ["CR2", "NEF", "ARW", "DNG", "CR3", "ORF", "RAF", "RW2", "PEF", "SRW"]
+sidecar_extension = "xmp"
+description = "Adobe Camera Raw / Lightroom edit metadata (lowercase)"
+
+[[sidecars]]
+primary_extensions = ["CR2", "NEF", "ARW", "JPG", "MP4", "MOV", "AVI"]
+sidecar_extension = "THM"
+description = "Camera thumbnail file"
+
+[[sidecars]]
+primary_extensions = ["JPG", "JPEG", "PNG", "MP4", "MOV", "HEIC"]
+sidecar_extension = "json"
+description = "Google Takeout metadata sidecar (jpg.json, mp4.json, etc.)"
+
+[[sidecars]]
+primary_extensions = ["JPG", "JPEG", "PNG", "MP4", "MOV"]
+sidecar_extension = "supplemental-metadata.json"
+description = "Google Photos supplemental metadata"
+
+[[sidecars]]
+primary_extensions = ["CR2", "NEF", "ARW", "DNG", "CR3"]
+sidecar_extension = "lrcat"
+description = "Adobe Lightroom catalog reference"

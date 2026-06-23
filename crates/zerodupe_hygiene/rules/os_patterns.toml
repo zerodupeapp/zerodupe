@@ -1,0 +1,44 @@
+# OS-specific file junk patterns for hygiene scanning.
+# These are compiled into the binary at build time.
+
+[macos]
+files = [
+    ".DS_Store",
+    "._*",
+    ".localized",
+    "Icon\r",
+]
+dirs = [
+    "__MACOSX",
+    ".fseventsd",
+    ".Spotlight-V100",
+]
+
+[windows]
+files = [
+    "Thumbs.db",
+    "desktop.ini",
+    "ehthumbs.db",
+]
+dirs = []
+
+[linux]
+files = [
+    "core.*",
+]
+dirs = [
+    "lost+found",
+]
+
+[cross_platform]
+temp_extensions = [
+    "tmp", "temp", "bak", "swp", "swo", "swn",
+    "part", "crdownload", "partial",
+]
+cache_dir_names = [
+    "__pycache__", ".venv", "node_modules",
+    "target", "build", ".cache",
+]
+editor_backups = [
+    "*~", "~$*",
+]

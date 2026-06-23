@@ -1,0 +1,15 @@
+[package]
+name = "zerodupe_cache"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+camino.workspace = true
+dirs.workspace = true
+rusqlite.workspace = true
+zerodupe_core.workspace = true
+zerodupe_hash.workspace = true
+zerodupe_platform.workspace = true

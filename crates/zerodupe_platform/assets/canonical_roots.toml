@@ -1,0 +1,40 @@
+# Canonical user directory patterns — always active (all OSes).
+# These are compiled into the binary. Users can override via
+# ~/.config/zerodupe/canonical_roots.user.toml
+
+[any]
+patterns = [
+    "/Pictures/",
+    "/Photos/",
+    "/Documents/",
+    "/Music/",
+    "/Videos/",
+    "/Movies/",
+    "/Downloads/",
+    "/Desktop/",
+]
+
+[linux]
+patterns = [
+    "/home/{user}/",
+    "$XDG_PICTURES_DIR",
+    "$XDG_DOCUMENTS_DIR",
+    "$XDG_MUSIC_DIR",
+    "$XDG_VIDEOS_DIR",
+    "$XDG_DOWNLOAD_DIR",
+    "$XDG_DESKTOP_DIR",
+]
+
+[macos]
+patterns = [
+    "/Users/{user}/",
+    "/Volumes/",
+    "photoslibrary/originals/",
+]
+
+[windows]
+patterns = [
+    "C:\\Users\\{user}\\",
+    "%USERPROFILE%",
+    "%HOMEDRIVE%%HOMEPATH%",
+]

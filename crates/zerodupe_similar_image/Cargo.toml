@@ -1,0 +1,38 @@
+[package]
+name = "zerodupe_similar_image"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+image.workspace = true
+image_hasher.workspace = true
+kamadak-exif.workspace = true
+rawler = { workspace = true, optional = true }
+camino.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+zerodupe_platform.workspace = true
+zerodupe_policy.workspace = true
+zerodupe_similar.workspace = true
+
+[features]
+default = ["raw"]
+heif = ["image/avif"]
+# RAW camera support via the embedded JPEG preview (D-009).
+raw = ["dep:rawler"]
+
+[dev-dependencies]
+rawler.workspace = true
+rayon.workspace = true
+tempfile.workspace = true
+zerodupe_cache.workspace = true
+zerodupe_core.workspace = true
+zerodupe_platform = { workspace = true, features = ["testing"] }
+criterion.workspace = true
+
+[[bench]]
+name = "fingerprint"
+harness = false

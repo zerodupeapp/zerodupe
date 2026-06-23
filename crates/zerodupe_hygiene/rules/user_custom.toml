@@ -1,0 +1,14 @@
+# User-defined custom hygiene rules.
+# Add your own patterns here. This file is not overwritten on updates.
+# 
+# Format:
+# [[patterns]]
+# name = "My custom pattern"
+# glob = "*.myext"
+# risk = "low"  # low, medium, high
+
+[[patterns]]
+# Example (commented out):
+# name = "Example custom pattern"
+# glob = "*.example"
+# risk = "low"

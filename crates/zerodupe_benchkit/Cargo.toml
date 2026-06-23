@@ -1,0 +1,17 @@
+[package]
+name = "zerodupe_benchkit"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+
+[dependencies]
+image.workspace = true
+serde = { workspace = true }
+serde_json.workspace = true
+clap.workspace = true
+
+[[bin]]
+name = "gen-dataset"
+path = "src/main.rs"

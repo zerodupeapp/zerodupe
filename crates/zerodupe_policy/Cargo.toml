@@ -1,0 +1,16 @@
+[package]
+name = "zerodupe_policy"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+camino.workspace = true
+serde.workspace = true
+zerodupe_core.workspace = true
+zerodupe_platform.workspace = true
+
+[dev-dependencies]
+zerodupe_platform = { workspace = true, features = ["testing"] }
