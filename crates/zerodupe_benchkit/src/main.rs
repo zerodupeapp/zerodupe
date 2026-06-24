@@ -350,7 +350,11 @@ fn gen_exact_duplicates(
             _ => {
                 let mut s = String::new();
                 for _ in 0..(50 + rng.range(200)) {
-                    s.push_str(&format!("line {} value {}\n", rng.range(10000), rng.range(10000)));
+                    s.push_str(&format!(
+                        "line {} value {}\n",
+                        rng.range(10000),
+                        rng.range(10000)
+                    ));
                 }
                 (s.into_bytes(), "txt", "text")
             }
@@ -395,23 +399,35 @@ fn gen_recompress_clusters(
         // Heavy JPEG recompression.
         let q35_rel = format!("similar_recompress/img_{i}_q35.jpg");
         save_jpeg(&base, &root.join(&q35_rel), 35)?;
-        variants.push(Variant { path: q35_rel, transform: "jpeg_q35".into() });
+        variants.push(Variant {
+            path: q35_rel,
+            transform: "jpeg_q35".into(),
+        });
 
         // Mild recompression.
         let q75_rel = format!("similar_recompress/img_{i}_q75.jpg");
         save_jpeg(&base, &root.join(&q75_rel), 75)?;
-        variants.push(Variant { path: q75_rel, transform: "jpeg_q75".into() });
+        variants.push(Variant {
+            path: q75_rel,
+            transform: "jpeg_q75".into(),
+        });
 
         // Downscale to 50%.
         let small = image::imageops::resize(&base, 160, 160, image::imageops::FilterType::Lanczos3);
         let resize_rel = format!("similar_recompress/img_{i}_half.jpg");
         save_jpeg(&small, &root.join(&resize_rel), 88)?;
-        variants.push(Variant { path: resize_rel, transform: "resize_50".into() });
+        variants.push(Variant {
+            path: resize_rel,
+            transform: "resize_50".into(),
+        });
 
         // Format change to PNG (lossless, same pixels).
         let png_rel = format!("similar_recompress/img_{i}.png");
         base.save(root.join(&png_rel))?;
-        variants.push(Variant { path: png_rel, transform: "png".into() });
+        variants.push(Variant {
+            path: png_rel,
+            transform: "png".into(),
+        });
 
         gt.similar_clusters.push(SimilarCluster {
             id: format!("recompress_{i}"),
@@ -448,15 +464,53 @@ fn gen_geometric_clusters(
          -> Result<(), Err> {
             let rel = format!("similar_geometric/img_{i}_{name}.jpg");
             save_jpeg(img, &root.join(&rel), 90)?;
-            variants.push(Variant { path: rel, transform: transform.into() });
+            variants.push(Variant {
+                path: rel,
+                transform: transform.into(),
+            });
             Ok(())
         };
 
-        push(&mut variants, root, &image::imageops::flip_horizontal(&base), i, "flip_h", "flip_h")?;
-        push(&mut variants, root, &image::imageops::flip_vertical(&base), i, "flip_v", "flip_v")?;
-        push(&mut variants, root, &image::imageops::rotate90(&base), i, "rot90", "rot_90")?;
-        push(&mut variants, root, &image::imageops::rotate180(&base), i, "rot180", "rot_180")?;
-        push(&mut variants, root, &image::imageops::rotate270(&base), i, "rot270", "rot_270")?;
+        push(
+            &mut variants,
+            root,
+            &image::imageops::flip_horizontal(&base),
+            i,
+            "flip_h",
+            "flip_h",
+        )?;
+        push(
+            &mut variants,
+            root,
+            &image::imageops::flip_vertical(&base),
+            i,
+            "flip_v",
+            "flip_v",
+        )?;
+        push(
+            &mut variants,
+            root,
+            &image::imageops::rotate90(&base),
+            i,
+            "rot90",
+            "rot_90",
+        )?;
+        push(
+            &mut variants,
+            root,
+            &image::imageops::rotate180(&base),
+            i,
+            "rot180",
+            "rot_180",
+        )?;
+        push(
+            &mut variants,
+            root,
+            &image::imageops::rotate270(&base),
+            i,
+            "rot270",
+            "rot_270",
+        )?;
 
         // Center crop to 80%.
         let (w, h) = base.dimensions();
@@ -518,7 +572,10 @@ fn gen_siblings(
             // Placeholder sibling — flagged so the scorer knows the real RAW
             // decode path was NOT exercised here.
             let rel = format!("siblings/IMG_{i:04}.dng");
-            fs::write(root.join(&rel), b"PLACEHOLDER-RAW (provide --raw-samples for the real RAW test)")?;
+            fs::write(
+                root.join(&rel),
+                b"PLACEHOLDER-RAW (provide --raw-samples for the real RAW test)",
+            )?;
             (rel, false)
         };
 
@@ -589,7 +646,10 @@ fn gen_hygiene(root: &Path, rng: &mut Rng, scale: usize, gt: &mut GroundTruth) -
     // Build cache dir.
     let cache_rel = "hygiene/__pycache__".to_string();
     fs::create_dir_all(root.join(&cache_rel))?;
-    fs::write(root.join(&cache_rel).join("module.cpython-311.pyc"), b"\x00\x00cache")?;
+    fs::write(
+        root.join(&cache_rel).join("module.cpython-311.pyc"),
+        b"\x00\x00cache",
+    )?;
     gt.hygiene.cache_dirs.push(cache_rel);
 
     // Broken symlink (Unix only).
