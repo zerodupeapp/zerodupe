@@ -261,9 +261,9 @@ mod tests {
     #[test]
     fn mock_linux_like_preserves_case() {
         let profile = MockProfile::linux_like();
-        let path = Utf8Path::new("/home/Rene/Pictures");
+        let path = Utf8Path::new("/home/user/Pictures");
         let normalized = profile.normalize_for_match(path);
-        assert_eq!(normalized, "/home/Rene/Pictures");
+        assert_eq!(normalized, "/home/user/Pictures");
     }
 
     #[test]

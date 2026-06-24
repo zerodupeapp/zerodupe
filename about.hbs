@@ -1,0 +1,48 @@
+# ZeroDupe Engine — Third-Party Licenses
+
+This document lists every third-party open-source dependency linked into the
+ZeroDupe engine binaries and the license under which it is distributed, as
+required by the MIT, BSD, Apache-2.0 and other permissive license terms.
+
+**License status:** predominantly permissive (MIT, Apache-2.0, BSD, ISC, Zlib, etc.).
+The tree includes **one copyleft library dependency — `rawler` (LGPL-2.1)** — whose
+obligations are met by shipping its source/object files or dynamic linking and
+reproducing its license text (see its section below). One crate is licensed under
+the file-level copyleft **MPL-2.0**. No GPL/AGPL dependencies are present.
+**Internal `zerodupe_*` crates** are covered by the project's [MIT LICENSE](LICENSE).
+See the per-license breakdown and full texts below.
+
+> This file is generated automatically with [`cargo-about`](https://github.com/EmbarkStudios/cargo-about)
+> from `Cargo.lock`. Do not edit by hand — run `cargo about generate about.hbs -o THIRD_PARTY_LICENSES.md --fail`.
+
+## Overview
+
+| License | Crates |
+|---------|--------|
+{{#each overview}}| {{name}} | {{count}} |
+{{/each}}
+
+---
+
+{{#each licenses}}
+## {{name}}
+
+Used by:
+
+{{#each used_by}}- `{{crate.name}}` {{crate.version}}
+{{/each}}
+
+<details>
+<summary>License text</summary>
+
+```
+{{text}}
+```
+
+</details>
+
+---
+
+{{/each}}
+
+*Generated with cargo-about from `Cargo.lock`. ZeroDupe internal crates (`zerodupe_*`) are covered by the project's MIT LICENSE file.*

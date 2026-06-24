@@ -1,0 +1,44 @@
+# Configuración de cargo-about para ZeroDupe engine.
+# Regenera THIRD_PARTY_LICENSES.md de forma reproducible y verificable en CI:
+#   cargo about generate about.hbs -o THIRD_PARTY_LICENSES.md --fail
+#
+# `accepted` es la lista blanca de licencias permitidas. El árbol es permisivo salvo
+# `rawler` (LGPL-2.1) — copyleft débil de librería: permite enlazar manteniendo sus
+# obligaciones (ver THIRD_PARTY_LICENSES.md). MPL-2.0 es copyleft a nivel de archivo.
+# Si una dependencia futura trae una licencia fuera de esta lista, cargo-about FALLA;
+# esa es la red de seguridad que evita sorpresas legales en el repo público.
+
+# Solo nos importa lo que se enlaza en los targets que distribuimos.
+targets = [
+    "x86_64-unknown-linux-gnu",
+    "x86_64-pc-windows-msvc",
+    "aarch64-apple-darwin",
+    "x86_64-apple-darwin",
+]
+
+# No incluir dependencias de dev/build que no se enlazan en el binario.
+ignore-build-dependencies = true
+ignore-dev-dependencies = true
+
+# Licencias presentes en el árbol distribuible: permisivas + rawler (LGPL-2.1).
+accepted = [
+    "MIT",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Zlib",
+    "0BSD",
+    "CC0-1.0",
+    "Unicode-3.0",
+    "Unicode-DFS-2016",
+    "Unlicense",
+    "MPL-2.0",
+    "LGPL-2.1",
+]
+
+# SQLite va embebido vía libsqlite3-sys y es de dominio público; cargo-about
+# no siempre detecta su texto, así que lo aclaramos explícitamente.
+[libsqlite3-sys.clarify]
+license = "MIT"

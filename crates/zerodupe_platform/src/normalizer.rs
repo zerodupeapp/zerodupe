@@ -51,9 +51,9 @@ mod tests {
 
     #[test]
     fn normalize_preserves_case_if_sensitive() {
-        let p = Utf8Path::new("/home/Rene/Pictures");
+        let p = Utf8Path::new("/home/user/Pictures");
         let n = normalize_for_match(p, true);
-        assert_eq!(n, "/home/Rene/Pictures");
+        assert_eq!(n, "/home/user/Pictures");
     }
 
     #[test]

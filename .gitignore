@@ -57,3 +57,12 @@ target/coverage/
 
 # ── Quarantine dirs generadas en tests ──
 zerodupe_quarantine/
+
+# ── Datos locales / bases SQLite (caché de hashes, journal de cuarentena, thumbnails) ──
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+resume.json
+thumbnails/
